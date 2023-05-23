@@ -26,7 +26,7 @@
 // html 使用
 
     <ul class="scoring">
-        <!-- i.rating-item[title]*5 -->
+        <!-- i.scoring-item[title]*5 -->
         <li class="scoring-item"></li>
         <li class="scoring-item"></li>
         <li class="scoring-item"></li>
