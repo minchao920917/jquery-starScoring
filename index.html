@@ -1,0 +1,132 @@
+<!--
+ * @Author: minchao920917 499790879@qq.com
+ * @Date: 2023-05-22 19:49:29
+ * @LastEditors: Do not edit
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>三种打分</title>
+</head>
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    li {
+        list-style: none;
+    }
+    
+    .scoring {
+        width: 180px;
+        height: 25px;
+        margin: 20px auto;
+        overflow-x: 0;
+    }
+    .scoring .scoring-item{
+        height: 25px;
+        width: 25px;
+        margin:0 5px;
+        background: url(./img/star.png) no-repeat;
+        /* background-position: 0 -50px; */
+        cursor: pointer;
+        float: left;
+    }
+    div{
+        text-align: center;
+    }
+    
+</style>
+
+<body>
+
+   
+
+    <!-- 第一种 整颗星点亮 -->
+    <ul class="scoring scoring1">
+  
+        <!-- i.scoring-item[title]*5 -->
+        <li class="scoring-item"></li>
+        <li class="scoring-item"></li>
+        <li class="scoring-item"></li>
+        <li class="scoring-item"></li>
+        <li class="scoring-item"></li>
+    </ul>
+    <div>
+        整颗星打分结果:<span id="p1">2</span>
+    </div>
+    <!-- 第二种 半颗星点亮 -->
+    <ul class="scoring scoring2">
+        <!-- i.rating-item[title]*5 -->
+        <li class="scoring-item"></li>
+        <li class="scoring-item"></li>
+        <li class="scoring-item"></li>
+        <li class="scoring-item"></li>
+        <li class="scoring-item"></li>
+    </ul>
+    <div>
+        半颗星打分结果:<span id="p2">2.5</span>
+    </div>
+    <!-- 第三种 十分之一颗星点亮 -->
+    <ul class="scoring scoring3">
+        <!-- i.rating-item[title]*5 -->
+        <li class="scoring-item"></li>
+        <li class="scoring-item"></li>
+        <li class="scoring-item"></li>
+        <li class="scoring-item"></li>
+        <li class="scoring-item"></li>
+        <!-- <li class="scoring-item"></li> -->
+    </ul>
+    <div>
+        十分之一颗星打分结果: <span id="p3">2.1</span>
+    </div>
+
+    
+
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="./jquery-starScoring.js"></script>
+    <script>
+        //使用方法
+        starScoring.init('.scoring1', {
+            mode: 'LightEntire', //  LightHalf/LightEntire/LightTen
+            num: 2, //点亮初始值
+        });
+        $('.scoring1').on('select', function(e, num, total) {
+            console.log(num + '/' + total);
+            $('#p1').html(num)
+        }).on('chosen', function(e, num, total) {
+            console.log(num + '/' + total);
+            $('#p1').html(num)
+        })
+        //使用方法
+        starScoring.init('.scoring2', {
+            mode: 'LightHalf', //  LightHalf/LightEntire/LightTen
+            num: 2.5, //点亮初始值
+        });
+        $('.scoring2').on('select', function(e, num, total) {
+            console.log(num + '/' + total);
+            $('#p2').html(num)
+        }).on('chosen', function(e, num, total) {
+            console.log(num + '/' + total);
+            $('#p2').html(num)
+        })
+        //使用方法
+        starScoring.init('.scoring3', {
+            mode: 'LightTen', //  LightHalf/LightEntire/LightTen
+            num: 2.1, //点亮初始值
+        });
+        $('.scoring3').on('select', function(e, num, total) {
+            console.log(num + '/' + total);
+            $('#p3').html(num)
+        }).on('chosen', function(e, num, total) {
+            console.log(num + '/' + total);
+            $('#p3').html(num)
+        })
+    </script>
+</body>
+
+</html>
