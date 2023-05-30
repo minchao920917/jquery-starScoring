@@ -1,3 +1,4 @@
+
 ## jquery 星星评级插件
 
 老项目焕发容光，为了应对苛刻的产品需求，要求在 C#的 web 项目中使用星星评级插件，且要求评级到小数点后一位
@@ -85,6 +86,7 @@
     LightEntire 整颗星点亮
     LightHalf   半颗星点亮
     LightTen    十分之一颗星点亮
+    LightTwenty    十分制 配合 Math.round(num*2 * 10) / 10 使用
 
 ## 结束语
 
