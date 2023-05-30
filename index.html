@@ -85,7 +85,19 @@
         十分之一颗星打分结果: <span id="p3">2.1</span>
     </div>
 
-    
+        <!-- 第四种 十分之一颗星点亮 -->
+        <ul class="scoring scoring4">
+          <!-- i.scoring-item[title]*5 -->
+          <li class="scoring-item"></li>
+          <li class="scoring-item"></li>
+          <li class="scoring-item"></li>
+          <li class="scoring-item"></li>
+          <li class="scoring-item"></li>
+          <!-- <li class="scoring-item"></li> -->
+      </ul>
+      <div>
+          十分制的打分结果: <span id="p4">2.1</span>
+      </div>
 
     <script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
     <script type="text/javascript" src="./jquery-starScoring.js"></script>
@@ -125,6 +137,17 @@
         }).on('chosen', function(e, num, total) {
             console.log(num + '/' + total);
             $('#p3').html(num)
+        })
+        //使用方法
+        starScoring.init('.scoring4', {
+            mode: 'LightTwenty', //  LightHalf/LightEntire/LightTen
+            num: Math.round(5/2 * 10) / 10, //点亮初始值
+        });
+        $('.scoring4').on('select', function(e, num, total) {
+            console.log(Math.round(num*2 * 10) / 10);
+            $('#p4').html(Math.round(num*2 * 10) / 10)
+        }).on('chosen', function(e, num, total) {
+            $('#p4').html(Math.round(num*2 * 10) / 10)
         })
     </script>
 </body>

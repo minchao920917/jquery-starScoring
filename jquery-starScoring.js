@@ -142,7 +142,34 @@ var starScoring = (function() {
       var selectedFraction = parseFloat((Math.round(positionX / itemWidth) * 0.1).toFixed(1));
       this.add = selectedFraction;
     };
+    // 十分制
+    var LightTwenty = function(el, options) {
+        Light.call(this, el, options)
+        this.selectEvent = "mousemove";
+    };
+    extend(LightTwenty, Light);
+    LightTwenty.prototype.lightOn = function(num) {
+      var count = parseInt(num);
+ 
+      Light.prototype.lightOn.call(this, count);
+      var percentage = Math.floor((num - count) * 10);
+      this.item.eq(count).css('background-position', '0 -'+ 25*(10-percentage)+'px');
+      
+    };
 
+    LightTwenty.prototype.select = function(e, $this) {
+      var positionX = e.pageX - $this.offset().left;
+      var itemWidth = $this.width() / 10;
+      var selectedFraction = parseFloat(((positionX / itemWidth) * 0.1).toFixed(2));
+      console.log('selectedFraction',selectedFraction)
+      this.add = selectedFraction;
+    };
+    LightTwenty.prototype.chosen = function(e, $this) {
+      var positionX = e.pageX - $this.offset().left;
+      var itemWidth = $this.width() / 10;
+      var selectedFraction = parseFloat(((positionX / itemWidth) * 0.1).toFixed(2));
+      this.add = selectedFraction;
+    };
 
     //默认参数
     var defaults = {
@@ -157,6 +184,7 @@ var starScoring = (function() {
         'LightEntire': LightEntire,
         'LightHalf': LightHalf,
         'LightTen': LightTen,
+        'LightTwenty': LightTwenty,
 
     };
 
